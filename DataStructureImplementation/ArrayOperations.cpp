@@ -1,187 +1,186 @@
-//     // Step 1: Initialize Array
-//     SET SIZE ← 10
-//     DECLARE ARRAY[SIZE]
-//     SET LENGTH ← 0
+//     // step 1: initialize array
+//     set size ← 10
+//     declare array[size]
+//     set length ← 0
 
-//     // Step 2: INSERT Operation
-//     PROCEDURE INSERT(ITEM, POS)
-//         IF LENGTH = SIZE THEN
-//             PRINT "Array is Full"
-//             RETURN
-//         END IF
+//     // step 2: insert operation
+//     procedure insert(item, pos)
+//         if length = size then
+//             print "array is full"
+//             return
+//         end if
 
-//         IF POS < 1 OR POS > LENGTH + 1 THEN
-//             PRINT "Invalid position"
-//             RETURN
-//         END IF
+//         if pos < 1 or pos > length + 1 then
+//             print "invalid position"
+//             return
+//         end if
 
-//         FOR I ← LENGTH DOWNTO POS
-//             ARRAY[I] ← ARRAY[I - 1]
-//         END FOR
+//         for i ← length downto pos
+//             array[i] ← array[i - 1]
+//         end for
 
-//         ARRAY[POS - 1] ← ITEM
-//         LENGTH ← LENGTH + 1
+//         array[pos - 1] ← item
+//         length ← length + 1
 
-//     END PROCEDURE
+//     end procedure
 
-//     // Step 3: DELETE Operation
-//     PROCEDURE DELETE(POS)
+//     // step 3: delete operation
+//     procedure delete(pos)
 
-//         IF POS < 1 OR POS > LENGTH THEN
-//             PRINT "Invalid position"
-//             RETURN
-//         END IF
+//         if pos < 1 or pos > length then
+//             print "invalid position"
+//             return
+//         end if
 
-//         ITEM ← ARRAY[POS - 1]
+//         item ← array[pos - 1]
 
-//         FOR I ← POS - 1 TO LENGTH - 2
-//             ARRAY[I] ← ARRAY[I + 1]
-//         END FOR
+//         for i ← pos - 1 to length - 2
+//             array[i] ← array[i + 1]
+//         end for
 
-//         LENGTH ← LENGTH - 1
+//         length ← length - 1
 
-//         PRINT "Deleted Item:", ITEM
+//         print "deleted item:", item
 
-//     END PROCEDURE
+//     end procedure
 
-//     // Step 4: SEARCH Operation
-//     PROCEDURE SEARCH(ITEM)
+//     // step 4: search operation
+//     procedure search(item)
 
-//         SET FOUND ← FALSE
+//         set found ← false
 
-//         FOR I ← 0 TO LENGTH - 1
-//             IF ARRAY[I] = ITEM THEN
-//                 PRINT "Element found at position:", I + 1
-//                 SET FOUND ← TRUE
-//                 BREAK
-//             END IF
-//         END FOR
+//         for i ← 0 to length - 1
+//             if array[i] = item then
+//                 print "element found at position:", i + 1
+//                 set found ← true
+//                 break
+//             end if
+//         end for
 
-//         IF FOUND = FALSE THEN
-//             PRINT "Element not found"
-//         END IF
+//         if found = false then
+//             print "element not found"
+//         end if
 
-//     END PROCEDURE
+//     end procedure
 
-//     // Step 5: UPDATE Operation
-//     PROCEDURE UPDATE(POS, ITEM)
+//     // step 5: update operation
+//     procedure update(pos, item)
 
-//         IF POS < 1 OR POS > LENGTH THEN
-//             PRINT "Invalid position"
-//             RETURN
-//         END IF
+//         if pos < 1 or pos > length then
+//             print "invalid position"
+//             return
+//         end if
 
-//         ARRAY[POS - 1] ← ITEM
+//         array[pos - 1] ← item
 
-//         PRINT "Element updated successfully"
+//         print "element updated successfully"
 
-//     END PROCEDURE
+//     end procedure
 
-//     // Step 6: DISPLAY Operation
-//     PROCEDURE DISPLAY()
+//     // step 6: display operation
+//     procedure display()
 
-//         IF LENGTH = 0 THEN
-//             PRINT "Array is empty"
-//             RETURN
-//         END IF
+//         if length = 0 then
+//             print "array is empty"
+//             return
+//         end if
 
-//         PRINT "Array Elements:"
+//         print "array elements:"
 
-//         FOR I ← 0 TO LENGTH - 1
-//             PRINT ARRAY[I]
-//         END FOR
+//         for i ← 0 to length - 1
+//             print array[i]
+//         end for
 
 #include <iostream>
 using namespace std;
 
 #define SIZE 5
 
-int array[SIZE];
-int length = 0;
+int arr[SIZE];
+int len = 0;
 
-void insertElement(int position, int value)
-{
-  if (length == SIZE)
+void insertEl(int pos, int val){
+  if (len == SIZE)
   {
     cout << "Array is full\n";
     return;
   }
-  if (position < 1 || position > length + 1)
+  if (pos < 1 || pos > len + 1)
   {
     cout << "Invalid position\n";
     return;
   }
 
-  for (int i = length; i >= position; i--)
+  for (int i = len; i >= pos; i--)
   {
-    array[i] = array[i - 1];
+    arr[i] = arr[i - 1];
   }
-  array[position - 1] = value;
-  length++;
-  cout << value << " inserted into array\n";
+  arr[pos - 1] = val;
+  len++;
+  cout << val << " inserted into array\n";
 }
 
-void deleteElement(int position)
+void deleteEl(int pos)
 {
-  if (position < 1 || position > length)
+  if (pos < 1 || pos > len)
   {
     cout << "Invalid position\n";
     return;
   }
 
-  int value = array[position - 1];
-  for (int i = position - 1; i < length - 1; i++)
+  int val = arr[pos - 1];
+  for (int i = pos - 1; i < len - 1; i++)
   {
-    array[i] = array[i + 1];
+    arr[i] = arr[i + 1];
   }
-  length--;
-  cout << value << " deleted from array\n";
+  len--;
+  cout << val << " deleted from array\n";
 }
 
-void searchElement(int value)
+void searchEl(int val)
 {
-  for (int i = 0; i < length; i++)
+  for (int i = 0; i < len; i++)
   {
-    if (array[i] == value)
+    if (arr[i] == val)
     {
-      cout << value << " found at position " << i + 1 << endl;
+      cout << val << " found at position " << i + 1 << endl;
       return;
     }
   }
   cout << "Element not found\n";
 }
 
-void updateElement(int position, int value)
+void updateEl(int pos, int val)
 {
-  if (position < 1 || position > length)
+  if (pos < 1 || pos > len)
   {
     cout << "Invalid position\n";
     return;
   }
 
-  array[position - 1] = value;
-  cout << "Element at position " << position << " updated\n";
+  arr[pos - 1] = val;
+  cout << "Element at position " << pos << " updated\n";
 }
 
-void display()
+void show()
 {
-  if (length == 0)
+  if (len == 0)
   {
     cout << "Array is empty\n";
     return;
   }
 
   cout << "Array: ";
-  for (int i = 0; i < length; i++)
+  for (int i = 0; i < len; i++)
   {
-    cout << array[i] << " ";
+    cout << arr[i] << " ";
   }
   cout << endl;
 }
 
 int main()
 {
-  int choice, position, value;
+  int ch, pos, val;
 
   while (true)
   {
@@ -192,40 +191,40 @@ int main()
     cout << "5. Display\n";
     cout << "6. Exit\n";
     cout << "Enter choice: ";
-    cin >> choice;
+    cin >> ch;
 
-    switch (choice)
+    switch (ch)
     {
     case 1:
-      cout << "Enter position (1-" << length + 1 << "): ";
-      cin >> position;
+      cout << "Enter position (1-" << len + 1 << "): ";
+      cin >> pos;
       cout << "Enter value: ";
-      cin >> value;
-      insertElement(position, value);
+      cin >> val;
+      insertEl(pos, val);
       break;
 
     case 2:
-      cout << "Enter position (1-" << length << "): ";
-      cin >> position;
-      deleteElement(position);
+      cout << "Enter position (1-" << len << "): ";
+      cin >> pos;
+      deleteEl(pos);
       break;
 
     case 3:
       cout << "Enter value to search: ";
-      cin >> value;
-      searchElement(value);
+      cin >> val;
+      searchEl(val);
       break;
 
     case 4:
-      cout << "Enter position (1-" << length << "): ";
-      cin >> position;
+      cout << "Enter position (1-" << len << "): ";
+      cin >> pos;
       cout << "Enter new value: ";
-      cin >> value;
-      updateElement(position, value);
+      cin >> val;
+      updateEl(pos, val);
       break;
 
     case 5:
-      display();
+      show();
       break;
 
     case 6:
