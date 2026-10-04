@@ -99,7 +99,8 @@ using namespace std;
 int arr[SIZE];
 int len = 0;
 
-void insertEl(int pos, int val){
+void insertEl(int pos, int val)
+{
   if (len == SIZE)
   {
     cout << "Array is full\n";
