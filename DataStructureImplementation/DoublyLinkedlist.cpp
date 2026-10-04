@@ -1,44 +1,136 @@
-// PSEUDOCODE: DOUBLY LINKED LIST
-//
-// Create a node:
-//     Store the value in data.
-//     Set previous and next to NULL.
-//
-// Insert at beginning:
-//     Create a new node.
-//     If the list is empty, make it head and tail.
-//     Otherwise, connect it before head and update head.
-//
-// Insert at end:
-//     Create a new node.
-//     If the list is empty, make it head and tail.
-//     Otherwise, connect it after tail and update tail.
-//
-// Delete from beginning:
-//     If the list is empty, show an empty message.
-//     Otherwise, move head to the next node.
-//     Set the new head previous pointer to NULL.
-//     Delete the old head node.
-//
-// Delete from end:
-//     If the list is empty, show an empty message.
-//     Otherwise, move tail to the previous node.
-//     Set the new tail next pointer to NULL.
-//     Delete the old tail node.
-//
-// Display forward:
-//     Start from head and move using next.
-//     Print every node until NULL.
-//
-// Display backward:
-//     Start from tail and move using previous.
-//     Print every node until NULL.
-//
-// Main:
-//     Show the menu repeatedly.
-//     Run the operation selected by the user.
-//     Stop when the user selects Exit.
+//     // node structure
+//     define node
+//         data
+//         previous
+//         next
+//     end define
 
+//     set head ← null
+//     set tail ← null
+
+//     // create a new node
+//     procedure create_node(item)
+
+//         create new_node
+//         new_node.data ← item
+//         new_node.previous ← null
+//         new_node.next ← null
+
+//         return new_node
+
+//     end procedure
+
+//     // insert at beginning
+//     procedure insert_beginning(item)
+
+//         new_node ← create_node(item)
+
+//         if head = null then
+//             head ← new_node
+//             tail ← new_node
+//         else
+//             new_node.next ← head
+//             head.previous ← new_node
+//             head ← new_node
+//         end if
+
+//     end procedure
+
+//     // insert at end
+//     procedure insert_end(item)
+
+//         new_node ← create_node(item)
+
+//         if tail = null then
+//             head ← new_node
+//             tail ← new_node
+//         else
+//             new_node.previous ← tail
+//             tail.next ← new_node
+//             tail ← new_node
+//         end if
+
+//     end procedure
+
+//     // delete from beginning
+//     procedure delete_beginning()
+
+//         if head = null then
+//             print "list is empty"
+//             return
+//         end if
+
+//         temp ← head
+
+//         if head = tail then
+//             head ← null
+//             tail ← null
+//         else
+//             head ← head.next
+//             head.previous ← null
+//         end if
+
+//         delete temp
+
+//     end procedure
+
+//     // delete from end
+//     procedure delete_end()
+
+//         if tail = null then
+//             print "list is empty"
+//             return
+//         end if
+
+//         temp ← tail
+
+//         if head = tail then
+//             head ← null
+//             tail ← null
+//         else
+//             tail ← tail.previous
+//             tail.next ← null
+//         end if
+
+//         delete temp
+
+//     end procedure
+
+//     // display forward
+//     procedure display_forward()
+
+//         if head = null then
+//             print "list is empty"
+//             return
+//         end if
+
+//         temp ← head
+
+//         while temp ≠ null
+//             print temp.data
+//             temp ← temp.next
+//         end while
+
+//     end procedure
+
+//     // display backward
+//     procedure display_backward()
+
+//         if tail = null then
+//             print "list is empty"
+//             return
+//         end if
+
+//         temp ← tail
+
+//         while temp ≠ null
+//             print temp.data
+//             temp ← temp.previous
+//         end while
+
+//     end procedure
+
+// end
 #include <iostream>
 using namespace std;
 
@@ -59,7 +151,7 @@ public:
 NODE *head = NULL;
 NODE *tail = NULL;
 
-// Insert a node at the beginning of the list.
+// insert a node at the beginning of the list.
 void insertAtBeginning(int value)
 {
   NODE *newNode = new NODE(value);
@@ -77,7 +169,7 @@ void insertAtBeginning(int value)
   }
 }
 
-// Insert a node at the end of the list.
+// insert a node at the end of the list.
 void insertAtEnd(int value)
 {
   NODE *newNode = new NODE(value);
@@ -95,12 +187,12 @@ void insertAtEnd(int value)
   }
 }
 
-// Delete the first node of the list.
+// delete the first node of the list.
 void deleteFromBeginning()
 {
   if (head == NULL)
   {
-    cout << "List is empty\n";
+    cout << "list is empty\n";
     return;
   }
 
@@ -120,14 +212,15 @@ void deleteFromBeginning()
   delete temp;
 }
 
-// Delete the last node of the list.
+// delete the last node of the list.
 void deleteFromEnd()
 {
   if (tail == NULL)
   {
-    cout << "List is empty\n";
+    cout << "list is empty\n";
     return;
   }
+
   NODE *temp = tail;
   if (head == tail)
   {
@@ -142,65 +235,65 @@ void deleteFromEnd()
   delete temp;
 }
 
-// Display the list from head to tail.
+// display the list from head to tail.
 void displayForward()
 {
   if (head == NULL)
   {
-    cout << "List is empty\n";
+    cout << "list is empty\n";
     return;
   }
   NODE *temp = head;
-  cout << "Forward: ";
+  cout << "forward: ";
   while (temp != NULL)
   {
     cout << temp->data << " <-> ";
     temp = temp->next;
   }
-  cout << "NULL\n";
+  cout << "null\n";
 }
 
-// Display the list from tail to head.
+// display the list from tail to head.
 void displayBackward()
 {
   if (tail == NULL)
   {
-    cout << "List is empty\n";
+    cout << "list is empty\n";
     return;
   }
   NODE *temp = tail;
-  cout << "Backward: ";
+  cout << "backward: ";
   while (temp != NULL)
   {
     cout << temp->data << " <-> ";
     temp = temp->previous;
   }
-  cout << "NULL\n";
+  cout << "null\n";
 }
 int main()
 {
   int choice, value;
   while (true)
   {
-    cout << "\n1. Insert at beginning\n";
-    cout << "2. Insert at end\n";
-    cout << "3. Delete from beginning\n";
-    cout << "4. Delete from end\n";
-    cout << "5. Display forward\n";
-    cout << "6. Display backward\n";
-    cout << "7. Exit\n";
-    cout << "Enter choice: ";
+    cout << "\n1. insert at beginning\n";
+    cout << "2. insert at end\n";
+    cout << "3. delete from beginning\n";
+    cout << "4. delete from end\n";
+    cout << "5. display forward\n";
+    cout << "6. display backward\n";
+    cout << "7. exit\n";
+    cout << "enter choice: ";
     cin >> choice;
     switch (choice)
     {
     case 1:
-      cout << "Enter value: ";
+      cout << "enter value: ";
       cin >> value;
       insertAtBeginning(value);
       break;
 
     case 2:
-      cout << "Enter value: ";
+      cout << "enter value: ";
       cin >> value;
       insertAtEnd(value);
       break;
@@ -231,7 +324,7 @@ int main()
       return 0;
 
     default:
-      cout << "Invalid choice\n";
+      cout << "invalid choice\n";
     }
   }
 }

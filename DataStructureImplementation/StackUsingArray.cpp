@@ -1,31 +1,54 @@
-// Step 1: Initialize Stack
-// Create an array STACK[SIZE].
-// Set TOP ← -1.
+//     // initialize stack
+//     set size ← 10
+//     declare stack[size]
+//     set top ← -1
 
-// Step 2: PUSH Operation
-// Check if TOP = SIZE - 1.
-// If yes, display "Stack Overflow" and stop the operation.
-// Otherwise, set TOP ← TOP + 1.
-// Read the value ITEM.
-// Set STACK[TOP] ← ITEM.
-// Stop the PUSH operation.
+//     // push operation
+//     procedure push(item)
 
-// Step 3: POP Operation
-// Check if TOP = -1.
-// If yes, display "Stack Underflow" and stop the operation.
-// Otherwise, set ITEM ← STACK[TOP].
-// Display/remove ITEM.
-// Set TOP ← TOP - 1.
-// Stop the POP operation.
+//         if top = size - 1 then
+//             print "stack overflow"
+//             return
+//         end if
 
-// Step 4: DISPLAY Operation
-// Check if TOP = -1.
-// If yes, display "Stack is Empty" and stop.
-// Otherwise, set I ← TOP.
-// Repeat while I ≥ 0:
-// Display STACK[I].
-// Set I ← I - 1.
-// Stop the DISPLAY operation.
+//         top ← top + 1
+//         stack[top] ← item
+
+//     end procedure
+
+//     // pop operation
+//     procedure pop()
+
+//         if top = -1 then
+//             print "stack underflow"
+//             return
+//         end if
+
+//         item ← stack[top]
+//         top ← top - 1
+
+//         print "deleted item:", item
+
+//     end procedure
+
+//     // display operation
+//     procedure display()
+
+//         if top = -1 then
+//             print "stack is empty"
+//             return
+//         end if
+
+//         i ← top
+
+//         while i ≥ 0
+//             print stack[i]
+//             i ← i - 1
+//         end while
+
+//     end procedure
+
+// end
 #include <iostream>
 using namespace std;
 
@@ -38,7 +61,7 @@ void push(int value)
 {
   if (top == SIZE - 1)
   {
-    cout << "Stack Overflow\n";
+    cout << "stack overflow\n";
     return;
   }
   top++;
@@ -50,7 +73,7 @@ void pop()
 {
   if (top == -1)
   {
-    cout << "Stack Underflow\n";
+    cout << "stack underflow\n";
     return;
   }
   cout << stack[top] << " popped from stack\n";
@@ -61,10 +84,10 @@ void display()
 {
   if (top == -1)
   {
-    cout << "Stack is empty\n";
+    cout << "stack is empty\n";
     return;
   }
-  cout << "Stack: ";
+  cout << "stack: ";
   for (int i = top; i >= 0; i--)
   {
     cout << stack[i] << " ";
@@ -78,17 +101,17 @@ int main()
 
   while (true)
   {
-    cout << "\n1. Push\n";
-    cout << "2. Pop\n";
-    cout << "3. Display\n";
-    cout << "4. Exit\n";
-    cout << "Enter choice: ";
+    cout << "\n1. push\n";
+    cout << "2. pop\n";
+    cout << "3. display\n";
+    cout << "4. exit\n";
+    cout << "enter choice: ";
     cin >> choice;
 
     switch (choice)
     {
     case 1:
-      cout << "Enter value: ";
+      cout << "enter value: ";
       cin >> value;
       push(value);
       break;
@@ -105,7 +128,7 @@ int main()
       return 0;
 
     default:
-      cout << "Invalid choice\n";
+      cout << "invalid choice\n";
     }
   }
 }

@@ -1,28 +1,164 @@
-// PSEUDOCODE: POLYNOMIAL ADDITION USING LINKED LIST
-//
-// Create a node:
-//     Store coefficient and exponent.
-//     Set next to NULL.
-//
-// Add a term:
-//     Create a new node.
-//     If the list is empty, make it head.
-//     Otherwise, move to the last node and attach the new node.
-//
-// Create a polynomial:
-//     Read the number of terms.
-//     Read terms from highest exponent to lowest exponent.
-//     Add every term to the linked list.
-//
-// Add two polynomials:
-//     Compare the exponents of both lists.
-//     If equal, add the coefficients and move both nodes.
-//     Copy the term with the greater exponent.
-//     Copy the remaining terms.
-//
-// Display:
-//     Start from head and print every term until NULL.
+// BEGIN
 
+//     // node structure
+//     define node
+//         coefficient
+//         exponent
+//         next
+//     end define
+
+//     // create a new node
+//     procedure create_node(coefficient, exponent)
+
+//         create new_node
+
+//         new_node.coefficient ← coefficient
+//         new_node.exponent ← exponent
+//         new_node.next ← null
+
+//         return new_node
+
+//     end procedure
+
+//     // add a term to polynomial
+//     procedure add_term(head, coefficient, exponent)
+
+//         new_node ← create_node(coefficient, exponent)
+
+//         if head = null then
+//             head ← new_node
+//             return head
+//         end if
+
+//         temp ← head
+
+//         while temp.next ≠ null
+//             temp ← temp.next
+//         end while
+
+//         temp.next ← new_node
+
+//         return head
+
+//     end procedure
+
+//     // create a polynomial
+//     procedure create_polynomial()
+
+//         set head ← null
+
+//         read number_of_terms
+
+//         for i ← 1 to number_of_terms
+
+//             read coefficient
+//             read exponent
+
+//             head ← add_term(head, coefficient, exponent)
+
+//         end for
+
+//         return head
+
+//     end procedure
+
+//     // add two polynomials
+//     procedure add_polynomial(poly1, poly2)
+
+//         set result ← null
+
+//         while poly1 ≠ null and poly2 ≠ null
+
+//             if poly1.exponent = poly2.exponent then
+
+//                 sum ← poly1.coefficient + poly2.coefficient
+
+//                 if sum ≠ 0 then
+//                     result ← add_term(
+//                         result,
+//                         sum,
+//                         poly1.exponent
+//                     )
+//                 end if
+
+//                 poly1 ← poly1.next
+//                 poly2 ← poly2.next
+
+//             else if poly1.exponent > poly2.exponent then
+
+//                 result ← add_term(
+//                     result,
+//                     poly1.coefficient,
+//                     poly1.exponent
+//                 )
+
+//                 poly1 ← poly1.next
+
+//             else
+
+//                 result ← add_term(
+//                     result,
+//                     poly2.coefficient,
+//                     poly2.exponent
+//                 )
+
+//                 poly2 ← poly2.next
+
+//             end if
+
+//         end while
+
+//         // copy remaining terms of first polynomial
+//         while poly1 ≠ null
+
+//             result ← add_term(
+//                 result,
+//                 poly1.coefficient,
+//                 poly1.exponent
+//             )
+
+//             poly1 ← poly1.next
+
+//         end while
+
+//         // copy remaining terms of second polynomial
+//         while poly2 ≠ null
+
+//             result ← add_term(
+//                 result,
+//                 poly2.coefficient,
+//                 poly2.exponent
+//             )
+
+//             poly2 ← poly2.next
+
+//         end while
+
+//         return result
+
+//     end procedure
+
+//     // display polynomial
+//     procedure display(poly)
+
+//         if poly = null then
+//             print "polynomial is empty"
+//             return
+//         end if
+
+//         temp ← poly
+
+//         while temp ≠ null
+
+//             print temp.coefficient, "x^", temp.exponent
+
+//             temp ← temp.next
+
+//         end while
+
+//     end procedure
+
+// end
 #include <iostream>
 using namespace std;
 
@@ -69,9 +205,9 @@ NODE *createPolynomial()
   NODE *head = NULL;
   int terms, coefficient, exponent;
 
-  cout << "Enter number of terms: ";
+  cout << "enter number of terms: ";
   cin >> terms;
-  cout << "Enter coefficient and exponent from highest to lowest:\n";
+  cout << "enter coefficient and exponent from highest to lowest:\n";
 
   for (int i = 0; i < terms; i++)
   {

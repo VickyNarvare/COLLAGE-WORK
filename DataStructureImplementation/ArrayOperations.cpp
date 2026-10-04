@@ -94,87 +94,87 @@
 #include <iostream>
 using namespace std;
 
-#define SIZE 5
+#define size 5
 
-int arr[SIZE];
-int len = 0;
+int array[size];
+int length = 0;
 
-void insertEl(int pos, int val)
+void insert_el(int pos, int val)
 {
-  if (len == SIZE)
+  if (length == size)
   {
-    cout << "Array is full\n";
+    cout << "array is full\n";
     return;
   }
-  if (pos < 1 || pos > len + 1)
+  if (pos < 1 || pos > length + 1)
   {
-    cout << "Invalid position\n";
+    cout << "invalid position\n";
     return;
   }
 
-  for (int i = len; i >= pos; i--)
+  for (int i = length; i >= pos; i--)
   {
-    arr[i] = arr[i - 1];
+    array[i] = array[i - 1];
   }
-  arr[pos - 1] = val;
-  len++;
+  array[pos - 1] = val;
+  length++;
   cout << val << " inserted into array\n";
 }
 
-void deleteEl(int pos)
+void delete_el(int pos)
 {
-  if (pos < 1 || pos > len)
+  if (pos < 1 || pos > length)
   {
-    cout << "Invalid position\n";
+    cout << "invalid position\n";
     return;
   }
 
-  int val = arr[pos - 1];
-  for (int i = pos - 1; i < len - 1; i++)
+  int val = array[pos - 1];
+  for (int i = pos - 1; i < length - 1; i++)
   {
-    arr[i] = arr[i + 1];
+    array[i] = array[i + 1];
   }
-  len--;
+  length--;
   cout << val << " deleted from array\n";
 }
 
-void searchEl(int val)
+void search_el(int val)
 {
-  for (int i = 0; i < len; i++)
+  for (int i = 0; i < length; i++)
   {
-    if (arr[i] == val)
+    if (array[i] == val)
     {
       cout << val << " found at position " << i + 1 << endl;
       return;
     }
   }
-  cout << "Element not found\n";
+  cout << "element not found\n";
 }
 
-void updateEl(int pos, int val)
+void update_el(int pos, int val)
 {
-  if (pos < 1 || pos > len)
+  if (pos < 1 || pos > length)
   {
-    cout << "Invalid position\n";
+    cout << "invalid position\n";
     return;
   }
 
-  arr[pos - 1] = val;
-  cout << "Element at position " << pos << " updated\n";
+  array[pos - 1] = val;
+  cout << "element at position " << pos << " updated\n";
 }
 
 void show()
 {
-  if (len == 0)
+  if (length == 0)
   {
-    cout << "Array is empty\n";
+    cout << "array is empty\n";
     return;
   }
 
-  cout << "Array: ";
-  for (int i = 0; i < len; i++)
+  cout << "array: ";
+  for (int i = 0; i < length; i++)
   {
-    cout << arr[i] << " ";
+    cout << array[i] << " ";
   }
   cout << endl;
 }
@@ -185,43 +185,43 @@ int main()
 
   while (true)
   {
-    cout << "\n1. Insert\n";
-    cout << "2. Delete\n";
-    cout << "3. Search\n";
-    cout << "4. Update\n";
-    cout << "5. Display\n";
-    cout << "6. Exit\n";
-    cout << "Enter choice: ";
+    cout << "\n1. insert\n";
+    cout << "2. delete\n";
+    cout << "3. search\n";
+    cout << "4. update\n";
+    cout << "5. display\n";
+    cout << "6. exit\n";
+    cout << "enter choice: ";
     cin >> ch;
 
     switch (ch)
     {
     case 1:
-      cout << "Enter position (1-" << len + 1 << "): ";
+      cout << "enter position (1-" << length + 1 << "): ";
       cin >> pos;
-      cout << "Enter value: ";
+      cout << "enter value: ";
       cin >> val;
-      insertEl(pos, val);
+      insert_el(pos, val);
       break;
 
     case 2:
-      cout << "Enter position (1-" << len << "): ";
+      cout << "enter position (1-" << length << "): ";
       cin >> pos;
-      deleteEl(pos);
+      delete_el(pos);
       break;
 
     case 3:
-      cout << "Enter value to search: ";
+      cout << "enter value to search: ";
       cin >> val;
-      searchEl(val);
+      search_el(val);
       break;
 
     case 4:
-      cout << "Enter position (1-" << len << "): ";
+      cout << "enter position (1-" << length << "): ";
       cin >> pos;
-      cout << "Enter new value: ";
+      cout << "enter new value: ";
       cin >> val;
-      updateEl(pos, val);
+      update_el(pos, val);
       break;
 
     case 5:
@@ -232,7 +232,7 @@ int main()
       return 0;
 
     default:
-      cout << "Invalid choice\n";
+      cout << "invalid choice\n";
     }
   }
 }

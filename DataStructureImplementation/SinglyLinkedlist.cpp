@@ -1,159 +1,159 @@
-//     // Node structure
-//     DEFINE NODE
-//         DATA
-//         NEXT
-//     END DEFINE
+//     // node structure
+//     define node
+//         data
+//         next
+//     end define
 
-//     SET HEAD ← NULL
+//     set head ← null
 
-//     // Create a new node
-//     PROCEDURE CREATE_NODE(ITEM)
+//     // create a new node
+//     procedure create_node(item)
 
-//         CREATE NEW_NODE
-//         NEW_NODE.DATA ← ITEM
-//         NEW_NODE.NEXT ← NULL
+//         create new_node
+//         new_node.data ← item
+//         new_node.next ← null
 
-//         RETURN NEW_NODE
+//         return new_node
 
-//     END PROCEDURE
+//     end procedure
 
-//     // Insert at Beginning
-//     PROCEDURE INSERT_BEGINNING(ITEM)
+//     // insert at beginning
+//     procedure insert_beginning(item)
 
-//         NEW_NODE ← CREATE_NODE(ITEM)
+//         new_node ← create_node(item)
 
-//         NEW_NODE.NEXT ← HEAD
-//         HEAD ← NEW_NODE
+//         new_node.next ← head
+//         head ← new_node
 
-//         PRINT "Node inserted successfully"
+//         print "node inserted successfully"
 
-//     END PROCEDURE
+//     end procedure
 
-//     // Insert at End
-//     PROCEDURE INSERT_END(ITEM)
+//     // insert at end
+//     procedure insert_end(item)
 
-//         NEW_NODE ← CREATE_NODE(ITEM)
+//         new_node ← create_node(item)
 
-//         IF HEAD = NULL THEN
-//             HEAD ← NEW_NODE
-//             PRINT "Node inserted successfully"
-//             RETURN
-//         END IF
+//         if head = null then
+//             head ← new_node
+//             print "node inserted successfully"
+//             return
+//         end if
 
-//         TEMP ← HEAD
+//         temp ← head
 
-//         WHILE TEMP.NEXT ≠ NULL
-//             TEMP ← TEMP.NEXT
-//         END WHILE
+//         while temp.next ≠ null
+//             temp ← temp.next
+//         end while
 
-//         TEMP.NEXT ← NEW_NODE
+//         temp.next ← new_node
 
-//         PRINT "Node inserted successfully"
+//         print "node inserted successfully"
 
-//     END PROCEDURE
+//     end procedure
 
-//     // Delete from Beginning
-//     PROCEDURE DELETE_BEGINNING()
+//     // delete from beginning
+//     procedure delete_beginning()
 
-//         IF HEAD = NULL THEN
-//             PRINT "List is empty"
-//             RETURN
-//         END IF
+//         if head = null then
+//             print "list is empty"
+//             return
+//         end if
 
-//         TEMP ← HEAD
-//         HEAD ← HEAD.NEXT
+//         temp ← head
+//         head ← head.next
 
-//         DELETE TEMP
+//         delete temp
 
-//         PRINT "Node deleted successfully"
+//         print "node deleted successfully"
 
-//     END PROCEDURE
+//     end procedure
 
-//     // Delete from End
-//     PROCEDURE DELETE_END()
+//     // delete from end
+//     procedure delete_end()
 
-//         IF HEAD = NULL THEN
-//             PRINT "List is empty"
-//             RETURN
-//         END IF
+//         if head = null then
+//             print "list is empty"
+//             return
+//         end if
 
-//         IF HEAD.NEXT = NULL THEN
-//             DELETE HEAD
-//             HEAD ← NULL
-//             PRINT "Node deleted successfully"
-//             RETURN
-//         END IF
+//         if head.next = null then
+//             delete head
+//             head ← null
+//             print "node deleted successfully"
+//             return
+//         end if
 
-//         TEMP ← HEAD
+//         temp ← head
 
-//         WHILE TEMP.NEXT.NEXT ≠ NULL
-//             TEMP ← TEMP.NEXT
-//         END WHILE
+//         while temp.next.next ≠ null
+//             temp ← temp.next
+//         end while
 
-//         DELETE TEMP.NEXT
-//         TEMP.NEXT ← NULL
+//         delete temp.next
+//         temp.next ← null
 
-//         PRINT "Node deleted successfully"
+//         print "node deleted successfully"
 
-//     END PROCEDURE
+//     end procedure
 
-//     // Display Linked List
-//     PROCEDURE DISPLAY()
+//     // display linked list
+//     procedure display()
 
-//         IF HEAD = NULL THEN
-//             PRINT "List is empty"
-//             RETURN
-//         END IF
+//         if head = null then
+//             print "list is empty"
+//             return
+//         end if
 
-//         TEMP ← HEAD
+//         temp ← head
 
-//         WHILE TEMP ≠ NULL
-//             PRINT TEMP.DATA
-//             TEMP ← TEMP.NEXT
-//         END WHILE
+//         while temp ≠ null
+//             print temp.data
+//             temp ← temp.next
+//         end while
 
-//     END PROCEDURE
+//     end procedure
 
-//     // Main Menu
-//     REPEAT
+//     // main menu
+//     repeat
 
-//         PRINT "1. Insert at Beginning"
-//         PRINT "2. Insert at End"
-//         PRINT "3. Delete from Beginning"
-//         PRINT "4. Delete from End"
-//         PRINT "5. Display"
-//         PRINT "6. Exit"
+//         print "1. insert at beginning"
+//         print "2. insert at end"
+//         print "3. delete from beginning"
+//         print "4. delete from end"
+//         print "5. display"
+//         print "6. exit"
 
-//         READ CHOICE
+//         read choice
 
-//         IF CHOICE = 1 THEN
-//             READ ITEM
-//             CALL INSERT_BEGINNING(ITEM)
+//         if choice = 1 then
+//             read item
+//             call insert_beginning(item)
 
-//         ELSE IF CHOICE = 2 THEN
-//             READ ITEM
-//             CALL INSERT_END(ITEM)
+//         else if choice = 2 then
+//             read item
+//             call insert_end(item)
 
-//         ELSE IF CHOICE = 3 THEN
-//             CALL DELETE_BEGINNING()
+//         else if choice = 3 then
+//             call delete_beginning()
 
-//         ELSE IF CHOICE = 4 THEN
-//             CALL DELETE_END()
+//         else if choice = 4 then
+//             call delete_end()
 
-//         ELSE IF CHOICE = 5 THEN
-//             CALL DISPLAY()
+//         else if choice = 5 then
+//             call display()
 
-//         ELSE IF CHOICE = 6 THEN
-//             PRINT "Program terminated"
+//         else if choice = 6 then
+//             print "program terminated"
 
-//         ELSE
-//             PRINT "Invalid choice"
+//         else
+//             print "invalid choice"
 
-//         END IF
+//         end if
 
-//     UNTIL CHOICE = 6
+//     until choice = 6
 
-// END
+// end
 #include <iostream>
 using namespace std;
 
@@ -205,7 +205,7 @@ void deleteFromBeginning()
 {
   if (head == nullptr)
   {
-    cout << "List is empty\n";
+    cout << "list is empty\n";
     return;
   }
 
@@ -219,7 +219,7 @@ void deleteFromEnd()
 {
   if (head == nullptr)
   {
-    cout << "List is empty\n";
+    cout << "list is empty\n";
     return;
   }
 
@@ -246,18 +246,18 @@ void display()
 {
   if (head == nullptr)
   {
-    cout << "List is empty\n";
+    cout << "list is empty\n";
     return;
   }
 
   Node *temp = head;
-  cout << "LinkedList: ";
+  cout << "linked list: ";
   while (temp != nullptr)
   {
     cout << temp->data << " -> ";
     temp = temp->next;
   }
-  cout << "NULL\n";
+  cout << "null\n";
 }
 
 int main()
@@ -266,25 +266,25 @@ int main()
 
   while (true)
   {
-    cout << "\n1. Insert at beginning\n";
-    cout << "2. Insert at end\n";
-    cout << "3. Delete from beginning\n";
-    cout << "4. Delete from end\n";
-    cout << "5. Display\n";
-    cout << "6. Exit\n";
-    cout << "Enter choice: ";
+    cout << "\n1. insert at beginning\n";
+    cout << "2. insert at end\n";
+    cout << "3. delete from beginning\n";
+    cout << "4. delete from end\n";
+    cout << "5. display\n";
+    cout << "6. exit\n";
+    cout << "enter choice: ";
     cin >> choice;
 
     switch (choice)
     {
     case 1:
-      cout << "Enter value: ";
+      cout << "enter value: ";
       cin >> value;
       insertAtBeginning(value);
       break;
 
     case 2:
-      cout << "Enter value: ";
+      cout << "enter value: ";
       cin >> value;
       insertAtEnd(value);
       break;
@@ -305,7 +305,7 @@ int main()
       return 0;
 
     default:
-      cout << "Invalid choice\n";
+      cout << "invalid choice\n";
     }
   }
 
