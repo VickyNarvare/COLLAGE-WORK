@@ -1,62 +1,180 @@
-// PSEUDOCODE: SINGLY LINKED LIST
-//
-// Create a node:
-//     Store the value in data.
-//     Set next to NULL.
-//
-// Insert at beginning:
-//     Create a new node.
-//     Connect it to the current head.
-//     Make the new node the head.
-//
-// Insert at end:
-//     Create a new node.
-//     If the list is empty, make it head.
-//     Otherwise, move to the last node.
-//     Connect the new node after the last node.
-//
-// Delete from beginning:
-//     If the list is empty, show an empty message.
-//     Otherwise, move head to the next node.
-//     Delete the old head node.
-//
-// Delete from end:
-//     If the list is empty, show an empty message.
-//     If there is one node, delete it and set head to NULL.
-//     Otherwise, move to the second-last node.
-//     Delete the last node and set next to NULL.
-//
-// Display:
-//     Start from head.
-//     Print every node and move using next.
-//     Stop when the node is NULL.
-//
-// Main:
-//     Show the menu repeatedly.
-//     Run the operation selected by the user.
-//     Stop when the user selects Exit.
+//     // Node structure
+//     DEFINE NODE
+//         DATA
+//         NEXT
+//     END DEFINE
 
+//     SET HEAD ← NULL
+
+//     // Create a new node
+//     PROCEDURE CREATE_NODE(ITEM)
+
+//         CREATE NEW_NODE
+//         NEW_NODE.DATA ← ITEM
+//         NEW_NODE.NEXT ← NULL
+
+//         RETURN NEW_NODE
+
+//     END PROCEDURE
+
+//     // Insert at Beginning
+//     PROCEDURE INSERT_BEGINNING(ITEM)
+
+//         NEW_NODE ← CREATE_NODE(ITEM)
+
+//         NEW_NODE.NEXT ← HEAD
+//         HEAD ← NEW_NODE
+
+//         PRINT "Node inserted successfully"
+
+//     END PROCEDURE
+
+//     // Insert at End
+//     PROCEDURE INSERT_END(ITEM)
+
+//         NEW_NODE ← CREATE_NODE(ITEM)
+
+//         IF HEAD = NULL THEN
+//             HEAD ← NEW_NODE
+//             PRINT "Node inserted successfully"
+//             RETURN
+//         END IF
+
+//         TEMP ← HEAD
+
+//         WHILE TEMP.NEXT ≠ NULL
+//             TEMP ← TEMP.NEXT
+//         END WHILE
+
+//         TEMP.NEXT ← NEW_NODE
+
+//         PRINT "Node inserted successfully"
+
+//     END PROCEDURE
+
+//     // Delete from Beginning
+//     PROCEDURE DELETE_BEGINNING()
+
+//         IF HEAD = NULL THEN
+//             PRINT "List is empty"
+//             RETURN
+//         END IF
+
+//         TEMP ← HEAD
+//         HEAD ← HEAD.NEXT
+
+//         DELETE TEMP
+
+//         PRINT "Node deleted successfully"
+
+//     END PROCEDURE
+
+//     // Delete from End
+//     PROCEDURE DELETE_END()
+
+//         IF HEAD = NULL THEN
+//             PRINT "List is empty"
+//             RETURN
+//         END IF
+
+//         IF HEAD.NEXT = NULL THEN
+//             DELETE HEAD
+//             HEAD ← NULL
+//             PRINT "Node deleted successfully"
+//             RETURN
+//         END IF
+
+//         TEMP ← HEAD
+
+//         WHILE TEMP.NEXT.NEXT ≠ NULL
+//             TEMP ← TEMP.NEXT
+//         END WHILE
+
+//         DELETE TEMP.NEXT
+//         TEMP.NEXT ← NULL
+
+//         PRINT "Node deleted successfully"
+
+//     END PROCEDURE
+
+//     // Display Linked List
+//     PROCEDURE DISPLAY()
+
+//         IF HEAD = NULL THEN
+//             PRINT "List is empty"
+//             RETURN
+//         END IF
+
+//         TEMP ← HEAD
+
+//         WHILE TEMP ≠ NULL
+//             PRINT TEMP.DATA
+//             TEMP ← TEMP.NEXT
+//         END WHILE
+
+//     END PROCEDURE
+
+//     // Main Menu
+//     REPEAT
+
+//         PRINT "1. Insert at Beginning"
+//         PRINT "2. Insert at End"
+//         PRINT "3. Delete from Beginning"
+//         PRINT "4. Delete from End"
+//         PRINT "5. Display"
+//         PRINT "6. Exit"
+
+//         READ CHOICE
+
+//         IF CHOICE = 1 THEN
+//             READ ITEM
+//             CALL INSERT_BEGINNING(ITEM)
+
+//         ELSE IF CHOICE = 2 THEN
+//             READ ITEM
+//             CALL INSERT_END(ITEM)
+
+//         ELSE IF CHOICE = 3 THEN
+//             CALL DELETE_BEGINNING()
+
+//         ELSE IF CHOICE = 4 THEN
+//             CALL DELETE_END()
+
+//         ELSE IF CHOICE = 5 THEN
+//             CALL DISPLAY()
+
+//         ELSE IF CHOICE = 6 THEN
+//             PRINT "Program terminated"
+
+//         ELSE
+//             PRINT "Invalid choice"
+
+//         END IF
+
+//     UNTIL CHOICE = 6
+
+// END
 #include <iostream>
 using namespace std;
 
-class NODE
+class Node
 {
 public:
   int data;
-  NODE *next;
+  Node *next;
 
-  NODE(int value)
+  Node(int value)
   {
     data = value;
-    next = NULL;
+    next = nullptr;
   }
 };
 
-NODE *head = NULL;
+Node *head = nullptr;
 
 void insertAtBeginning(int value)
 {
-  NODE *newNode = new NODE(value);
+  Node *newNode = new Node(value);
   newNode->next = head;
   head = newNode;
   cout << value << " inserted at beginning\n";
@@ -64,16 +182,16 @@ void insertAtBeginning(int value)
 
 void insertAtEnd(int value)
 {
-  NODE *newNode = new NODE(value);
+  Node *newNode = new Node(value);
 
-  if (head == NULL)
+  if (head == nullptr)
   {
     head = newNode;
   }
   else
   {
-    NODE *temp = head;
-    while (temp->next != NULL)
+    Node *temp = head;
+    while (temp->next != nullptr)
     {
       temp = temp->next;
     }
@@ -85,13 +203,13 @@ void insertAtEnd(int value)
 
 void deleteFromBeginning()
 {
-  if (head == NULL)
+  if (head == nullptr)
   {
     cout << "List is empty\n";
     return;
   }
 
-  NODE *temp = head;
+  Node *temp = head;
   head = head->next;
   cout << temp->data << " deleted from beginning\n";
   delete temp;
@@ -99,42 +217,42 @@ void deleteFromBeginning()
 
 void deleteFromEnd()
 {
-  if (head == NULL)
+  if (head == nullptr)
   {
     cout << "List is empty\n";
     return;
   }
 
-  if (head->next == NULL)
+  if (head->next == nullptr)
   {
     cout << head->data << " deleted from end\n";
     delete head;
-    head = NULL;
+    head = nullptr;
     return;
   }
 
-  NODE *temp = head;
-  while (temp->next->next != NULL)
+  Node *temp = head;
+  while (temp->next->next != nullptr)
   {
     temp = temp->next;
   }
 
   cout << temp->next->data << " deleted from end\n";
   delete temp->next;
-  temp->next = NULL;
+  temp->next = nullptr;
 }
 
 void display()
 {
-  if (head == NULL)
+  if (head == nullptr)
   {
     cout << "List is empty\n";
     return;
   }
 
-  NODE *temp = head;
+  Node *temp = head;
   cout << "LinkedList: ";
-  while (temp != NULL)
+  while (temp != nullptr)
   {
     cout << temp->data << " -> ";
     temp = temp->next;
@@ -190,4 +308,6 @@ int main()
       cout << "Invalid choice\n";
     }
   }
+
+  return 0;
 }
