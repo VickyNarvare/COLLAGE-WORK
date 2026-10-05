@@ -236,7 +236,8 @@ NODE *addPolynomials(NODE *polynomial1, NODE *polynomial2)
     }
     else if (polynomial1->exponent == polynomial2->exponent)
     {
-      addTerm(result, polynomial1->coefficient + polynomial2->coefficient, polynomial1->exponent);
+      addTerm(result, polynomial1->coefficient + polynomial2->coefficient,
+              polynomial1->exponent);
       polynomial1 = polynomial1->next;
       polynomial2 = polynomial2->next;
     }
