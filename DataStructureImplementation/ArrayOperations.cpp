@@ -99,7 +99,7 @@ using namespace std;
 int array[size];
 int length = 0;
 
-void insert_el(int pos, int val) //Insert Operation
+void insert_el(int pos, int val) // Insert Operation
 {
   if (length == size)
   {
@@ -121,7 +121,7 @@ void insert_el(int pos, int val) //Insert Operation
   cout << val << " inserted into array\n";
 }
 
-void delete_el(int pos) //Delete Operation
+void delete_el(int pos) // Delete Operation
 {
   if (pos < 1 || pos > length)
   {
@@ -138,7 +138,7 @@ void delete_el(int pos) //Delete Operation
   cout << val << " deleted from array\n";
 }
 
-void search_el(int val) //Search Element 
+void search_el(int val) // Search Element
 {
   for (int i = 0; i < length; i++)
   {
@@ -163,7 +163,7 @@ void update_el(int pos, int val) // Update Eletemet
   cout << "element at position " << pos << " updated\n";
 }
 
-void show() //Display Elements
+void show() // Display Elements
 {
   if (length == 0)
   {
@@ -236,3 +236,45 @@ int main()
     }
   }
 }
+
+/*
+Sample Output:
+
+1. insert
+2. delete
+3. search
+4. update
+5. display
+6. exit
+enter choice: 1
+enter position (1-1): 1
+enter value: 10
+10 inserted into array
+
+1. insert
+2. delete
+3. search
+4. update
+5. display
+6. exit
+enter choice: 5
+array: 10 20
+
+1. insert
+2. delete
+3. search
+4. update
+5. display
+6. exit
+enter choice: 3
+enter value to search: 20
+20 found at position 2
+
+1. insert
+2. delete
+3. search
+4. update
+5. display
+6. exit
+enter choice: 6
+*/

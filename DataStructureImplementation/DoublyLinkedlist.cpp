@@ -328,3 +328,39 @@ int main()
     }
   }
 }
+// ===================== sample output =====================
+// 1. insert at beginning
+// 2. insert at end
+// 3. delete from beginning
+// 4. delete from end
+// 5. display forward
+// 6. display backward
+// 7. exit
+// enter choice: 1
+// enter value: 20
+//
+// enter choice: 1
+// enter value: 10
+//
+// enter choice: 2
+// enter value: 30
+//
+// enter choice: 5
+// forward: 10 <-> 20 <-> 30 <-> null
+//
+// enter choice: 6
+// backward: 30 <-> 20 <-> 10 <-> null
+//
+// enter choice: 3
+//
+// enter choice: 4
+//
+// enter choice: 5
+// forward: 20 <-> null
+//
+// enter choice: 4
+//
+// enter choice: 5
+// list is empty
+//
+// enter choice: 7

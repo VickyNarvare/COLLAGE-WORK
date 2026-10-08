@@ -311,3 +311,42 @@ int main()
 
   return 0;
 }
+
+// ===================== sample output =====================
+// 1. insert at beginning
+// 2. insert at end
+// 3. delete from beginning
+// 4. delete from end
+// 5. display
+// 6. exit
+// enter choice: 1
+// enter value: 20
+// 20 inserted at beginning
+//
+// enter choice: 1
+// enter value: 10
+// 10 inserted at beginning
+//
+// enter choice: 2
+// enter value: 30
+// 30 inserted at end
+//
+// enter choice: 5
+// linked list: 10 -> 20 -> 30 -> null
+//
+// enter choice: 3
+// 10 deleted from beginning
+//
+// enter choice: 4
+// 30 deleted from end
+//
+// enter choice: 5
+// linked list: 20 -> null
+//
+// enter choice: 4
+// 20 deleted from end
+//
+// enter choice: 5
+// list is empty
+//
+// enter choice: 6

@@ -310,3 +310,18 @@ int main()
 
   return 0;
 }
+// ===================== sample output =====================
+// Polynomial 1
+// enter number of terms: 3
+// enter coefficient and exponent from highest to lowest:
+// 5 3
+// 4 2
+// 2 0
+// Polynomial 2
+// enter number of terms: 2
+// enter coefficient and exponent from highest to lowest:
+// 3 2
+// 6 1
+// Polynomial 1: 5x^3 + 4x^2 + 2x^0
+// Polynomial 2: 3x^2 + 6x^1
+// Sum: 5x^3 + 7x^2 + 6x^1 + 2x^0
